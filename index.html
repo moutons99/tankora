@@ -496,9 +496,45 @@
       "M1A1 Abrams '73 Easting'": "M1A1_Abrams_(73_Easting)"
     };
 
+  const LOCAL_TANKS = [
+      "Olifant Mk 1B",
+      "Eland-90 Mk 7",
+      "Panzerjäger G13",
+      "Panzer 58",
+      "Panzer 61",
+      "Schützenpanzer 63-73",
+      "Schützenpanzer 63-89",
+      "Panzerjäger 90",
+      "Mowag Piranha IIC PAL Pz 93",
+      "Panzer 68",
+      "Panzer 68 AA 2",
+      "Panzer 68-75",
+      "Panzer 68-88",
+      "Panzer 87",
+      "Panzer 87 WE",
+      "Panzer 87-140 WE",
+      "A7V Nixie",
+      "8.8 cm Flak 37 Sfl.",
+      "Neubaufahrzeug",
+      "Panther Ausf. G mit FG 1250",
+      "Panzer III Ausf. H(U)",
+      "Flammpanzer 38(t)",
+      "Flammpanzer I",
+      "Flammpanzer II",
+      "Flammpanzer III",
+      "Churchill Mk IX",
+      "Cruiser Tank Mk V",
+      "SAu 40",
+      "T-90M2",
+      "Big Wind Windy"
+    ];
+
     const getTankImg = (tank) => {
       if (!tank || !tank.Name) return 'https://placehold.co/600x400/0f172a/475569?text=NO+DATA';
-
+      // Images locales pour les nouveaux chars
+      if (LOCAL_TANKS.includes(tank.Name)) {
+        return `./${tank.Name.replace(/ /g, '_')}.png`;
+      }
       // Exception spécifique pour le T-80 Tier IV (moderne)
       if (tank.Name === "T-80" && tank.Rarity && tank.Rarity.includes("Tier IV")) {
         return `https://ik.imagekit.io/zmtjm8kok/tanks/Modern/Soviet%20Union/T-80.png?updatedAt=1772971124077`;
@@ -620,7 +656,7 @@
     };
 
     const DATA_VALUE_MAP_FR = {
-      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "United States of America": "États-Unis", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
+      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "United States of America": "États-Unis", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
     };
 
     const FLAGS = {
@@ -638,7 +674,8 @@
       "East Germany": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Flag_of_East_Germany.svg",
       "Ost Germany": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_West_Germany%3B_Flag_of_Germany_%281990%E2%80%931996%29.svg",
       "Switzerland": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg",
-      "South Africa": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg"
+      "South Africa": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
+      "Hungary": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/330px-Flag_of_Hungary.svg.png"
     };
 
     const PATCH_NOTES = [
@@ -1229,6 +1266,7 @@ Panzer 87 WE,Switzerland,Modern,Tier IV,Heavy,Heavy,Very High,Large,Normal,Mediu
 Panzer 87-140 WE,Switzerland,Modern,Prototype,Heavy,Very Heavy,Very High,Large,Normal,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
 Olifant Mk 1B,South Africa,Modern,Tier II,Light,Medium,High,Medium,Normal,Medium,Medium,No,No,Yes,No,Yes,No,Yes,No,No,No,No,No
 Eland-90 Mk 7,South Africa,Modern,Tier I,Very Light,Light,Low,Small,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Big Wind Windy,Hungary,Modern,Event,Very Light,Very Heavy,Low,Very Large,Slow,Low,Very Low,No,No,No,No,No,Yes,No,No,No,No,No,Level 2
     `;
     // --- UTILS ---
     const generateId = (tank) => {

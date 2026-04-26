@@ -543,15 +543,24 @@
       "Churchill Mk X",
       "SAu 40",
       "T-90M2",
+      "Mark V 'Male' (Frank Mitchell)",
       "Big Wind Windy"
     ];
 
     const getTankImg = (tank) => {
       if (!tank || !tank.Name) return 'https://placehold.co/600x400/0f172a/475569?text=NO+DATA';
+
+      // Cette ligne va transformer "Mark V 'Male' (Frank Mitchell)" 
+      // en "mark_v_male_frank_mitchell"
+      const cleanName = tank.Name
+        .toLowerCase()
+        .replace(/['()]/g, '') // Supprime les parenthèses et apostrophes
+        .replace(/\s+/g, '_');  // Remplace les espaces par des underscores
+
       // Images locales pour les nouveaux chars
       if (LOCAL_TANKS.includes(tank.Name)) {
-        return `./${tank.Name.replace(/ /g, '_')}.png`;
-      }
+          return `./${cleanName}.png`;
+        }
       // Exception spécifique pour le T-80 Tier IV (moderne)
       if (tank.Name === "T-80" && tank.Rarity && tank.Rarity.includes("Tier IV")) {
         return `https://ik.imagekit.io/zmtjm8kok/tanks/Modern/Soviet%20Union/T-80.png?updatedAt=1772971124077`;
@@ -1268,7 +1277,6 @@ Type 98A Ke-Ni,Empire of Japan,WW1-WW2,Tier I,Very Light,Very Light,Low,Tiny,Nor
 M1A1 Abrams '73 Easting',United States of America,Modern,Event,Heavy,Heavy,Very High,Large,Fast,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
 M48A3 Patton 'Jungle Fighter',United States of America,Cold War,Event,Heavy,Heavy,High,Medium,Slow,Medium,Medium,No,No,No,No,No,No,No,No,No,No,No,No
 Mark V 'Male' (Frank Mitchell),United Kingdom,WW1-WW2,Event,Very Light,Very Light,Low,Normal,Very Slow,Low,Low,No,No,No,No,No,No,No,No,No,No,No,No
-
 A7V Nixie,German Reich,WW1-WW2,Event,Very Light,Very Light,Low,Medium,Very Slow,Low,Low,No,No,No,No,No,No,No,No,No,No,No,No
 8.8 cm Flak 37 Sfl.,German Reich,WW1-WW2,Tier IV,Very Light,Heavy,High,Very Large,Normal,Low,Very High,No,No,No,No,No,No,No,No,No,No,No,No
 Neubaufahrzeug,German Reich,WW1-WW2,Tier I,Very Light,Very Light,Low,Large,Slow,Medium,High,No,No,No,No,No,No,No,No,No,No,No,No

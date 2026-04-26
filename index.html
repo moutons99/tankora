@@ -499,6 +499,23 @@
   const LOCAL_TANKS = [
       "Olifant Mk 1B",
       "Eland-90 Mk 7",
+      "Marmon-Herrington Mk II",
+      "Marmon-Herrington Mk III",
+      "Marmon-Herrington Mk IV",
+      "Marmon-Herrington Mk IV F",
+      "Olifant Mk 1A",
+      "Olifant Mk 2",
+      "Rooikat Mk 1D",
+      "Ratel 20",
+      "Ratel 90",
+      "Ratel ZT-3A2",
+      "Badger IFV Section",
+      "Badger IFV Missile",
+      "Tank Technology Demonstrator",
+      "Nahuel DL-43",
+      "TAM",
+      "TAM 2C",
+      "VCTP",
       "Panzerjäger G13",
       "Panzer 58",
       "Panzer 61",
@@ -656,7 +673,7 @@
     };
 
     const DATA_VALUE_MAP_FR = {
-      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "United States of America": "États-Unis", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
+      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "United States of America": "États-Unis","Argentina": "Argentine", "Union of South Africa": "Union sud-africaine", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
     };
 
     const FLAGS = {
@@ -675,10 +692,24 @@
       "Ost Germany": "https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_West_Germany%3B_Flag_of_Germany_%281990%E2%80%931996%29.svg",
       "Switzerland": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg",
       "South Africa": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
-      "Hungary": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/330px-Flag_of_Hungary.svg.png"
+      "Hungary": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/330px-Flag_of_Hungary.svg.png",
+      "Union of South Africa": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg/330px-Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg.png",
+      "Argentina": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg"
     };
 
     const PATCH_NOTES = [
+            {
+        version: "2.4.0",
+        date: "2026-04-26",
+        changes: {
+          fr: [
+            "Ajout de l'Union sud-africaine, l'Afrique du Sud et l'Argentine (19 nouveaux chars).",
+          ],
+          en: [
+            "Added Union of South Africa, South Africa, and Argentina (19 new tanks).",
+          ]
+        }
+      },
       {
         version: "2.3.0",
         date: "2026-04-10",
@@ -1264,9 +1295,26 @@ Panzer 68-88,Switzerland,Modern,Tier II,Light,Medium,High,Large,Normal,Medium,Me
 Panzer 87,Switzerland,Modern,Tier III,Heavy,Heavy,Very High,Large,Normal,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
 Panzer 87 WE,Switzerland,Modern,Tier IV,Heavy,Heavy,Very High,Large,Normal,Medium,Very High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
 Panzer 87-140 WE,Switzerland,Modern,Prototype,Heavy,Very Heavy,Very High,Large,Normal,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
-Olifant Mk 1B,South Africa,Modern,Tier II,Light,Medium,High,Medium,Normal,Medium,Medium,No,No,Yes,No,Yes,No,Yes,No,No,No,No,No
-Eland-90 Mk 7,South Africa,Modern,Tier I,Very Light,Light,Low,Small,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
 Big Wind Windy,Hungary,Modern,Event,Very Light,Very Heavy,Low,Very Large,Slow,Low,Very Low,No,No,No,No,No,Yes,No,No,No,No,No,Level 2
+Marmon-Herrington Mk II,Union of South Africa,WW1-WW2,Tier II,Light,Medium,Low,Medium,Very Fast,Low,Low,No,No,No,No,No,No,No,No,No,No,No,No
+Marmon-Herrington Mk III,Union of South Africa,WW1-WW2,Tier II,Light,Medium,Low,Medium,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Marmon-Herrington Mk IV,Union of South Africa,WW1-WW2,Tier II,Light,Medium,Low,Medium,Very Fast,None,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Marmon-Herrington Mk IV F,United Kingdom,WW1-WW2,Tier II,Light,Medium,Low,Medium,Very Fast,None,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Eland-90 Mk 7,South Africa,Modern,Tier I,Very Light,Light,Low,Small,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Olifant Mk 1A,South Africa,Modern,Tier II,Light,Medium,High,Medium,Normal,Medium,Medium,No,No,Yes,No,No,No,No,No,No,No,No,No
+Olifant Mk 1B,South Africa,Modern,Tier II,Light,Medium,High,Medium,Normal,Medium,Medium,No,No,Yes,No,Yes,No,Yes,No,No,No,No,No
+Olifant Mk 2,South Africa,Modern,Tier III,Light,Heavy,High,Medium,Normal,Medium,Medium,No,No,Yes,No,Yes,No,Yes,Yes,No,No,No,No
+Rooikat Mk 1D,South Africa,Modern,Tier II,Very Light,Medium,Low,Medium,Very Fast,Medium,Medium,No,No,Yes,No,Yes,No,Yes,No,No,No,No,No
+Ratel 20,South Africa,Modern,Tier I,Very Light,Very Light,Low,Large,Very Fast,Low,Medium,No,Yes,No,No,No,No,Yes,No,No,No,No,No
+Ratel 90,South Africa,Modern,Tier II,Very Light,Heavy,Low,Large,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Ratel ZT-3A2,South Africa,Modern,Tier I,Very Light,N/A,N/A,Large,Very Fast,Low,Medium,No,No,No,No,No,No,No,No,No,Yes,No,No
+Badger IFV Section,South Africa,Modern,Tier I,Very Light,Light,Low,Medium,Very Fast,Low,Medium,No,Yes,Yes,No,Yes,No,Yes,Yes,No,No,No,No
+Badger IFV Missile,South Africa,Modern,Tier I,Very Light,N/A,N/A,Medium,Very Fast,Low,Medium,No,No,No,No,Yes,No,Yes,Yes,No,Yes,No,No
+Tank Technology Demonstrator,South Africa,Modern,Prototype,Very Light,Heavy,High,Medium,Fast,None,Medium,No,No,Yes,No,Yes,No,Yes,Yes,No,No,No,No
+Nahuel DL-43,Argentina,WW1-WW2,Tier III,Medium,Medium,Low,Large,Slow,Medium,Low,No,No,No,No,No,No,No,No,No,No,No,No
+TAM,Argentina,Modern,Tier II,Very Light,Medium,Medium,Medium,Fast,Medium,Medium,No,No,Yes,No,No,No,Yes,No,No,No,No,No
+TAM 2C,Argentina,Modern,Tier III,Very Light,Heavy,High,Medium,Fast,Medium,Medium,No,No,Yes,No,No,No,Yes,Yes,No,No,No,No
+VCTP,Argentina,Modern,Tier II,Very Light,Light,Low,Medium,Fast,Medium,Medium,No,Yes,Yes,No,No,No,No,No,No,No,No,No
     `;
     // --- UTILS ---
     const generateId = (tank) => {
@@ -2756,7 +2804,7 @@ Big Wind Windy,Hungary,Modern,Event,Very Light,Very Heavy,Low,Very Large,Slow,Lo
                   <h1 className="text-4xl md:text-5xl font-military uppercase tracking-wider text-slate-100 flex items-center gap-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     <span className={`text-${theme}-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]`} style={{ color: THEME_COLORS[theme].hex }}><Icons.Tank size={42} strokeWidth={2.5} /></span>
                     <span>Tankora <span style={{ color: THEME_COLORS[theme].hex }}>DB</span></span>
-                    <span className="text-[10px] font-sans font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded border border-white/10 ml-2 self-start mt-2">v2.3.0</span>
+                    <span className="text-[10px] font-sans font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded border border-white/10 ml-2 self-start mt-2">v2.4.0</span>
                   </h1>
                   <div className="text-xs font-medium text-slate-400 mt-2 flex flex-col sm:flex-row sm:items-center gap-3">
                     <span className="flex items-center gap-1.5 bg-slate-800/50 px-3 py-1 rounded-full border border-white/5 cursor-pointer hover:bg-slate-800 transition-colors group" onClick={() => setShowProfile(true)} title={translate('details')}>
@@ -3150,7 +3198,7 @@ Big Wind Windy,Hungary,Modern,Event,Very Light,Very Heavy,Low,Very Large,Slow,Lo
             <p className="flex justify-center items-center gap-2">
               <span className="font-bold uppercase tracking-widest" style={{ color: THEME_COLORS[theme].hex }}>{translate('credits')}</span>
               <span className="opacity-30">|</span>
-              <span className="opacity-50">v2.3.0</span>
+              <span className="opacity-50">v2.4.0</span>
             </p>
 
             {showBackToTop && (

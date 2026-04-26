@@ -550,17 +550,10 @@
     const getTankImg = (tank) => {
       if (!tank || !tank.Name) return 'https://placehold.co/600x400/0f172a/475569?text=NO+DATA';
 
-      // Cette ligne va transformer "Mark V 'Male' (Frank Mitchell)" 
-      // en "mark_v_male_frank_mitchell"
-      const cleanName = tank.Name
-        .toLowerCase()
-        .replace(/['()]/g, '') // Supprime les parenthèses et apostrophes
-        .replace(/\s+/g, '_');  // Remplace les espaces par des underscores
-
       // Images locales pour les nouveaux chars
       if (LOCAL_TANKS.includes(tank.Name)) {
-          return `./${cleanName}.png`;
-        }
+        return `./${tank.Name.replace(/ /g, '_')}.png`;
+      }
       // Exception spécifique pour le T-80 Tier IV (moderne)
       if (tank.Name === "T-80" && tank.Rarity && tank.Rarity.includes("Tier IV")) {
         return `https://ik.imagekit.io/zmtjm8kok/tanks/Modern/Soviet%20Union/T-80.png?updatedAt=1772971124077`;

@@ -549,7 +549,9 @@
 
     const getTankImg = (tank) => {
       if (!tank || !tank.Name) return 'https://placehold.co/600x400/0f172a/475569?text=NO+DATA';
-
+      if (tank.Name === "Mark V 'Male' (Frank Mitchell)") {
+        return `./Mark_V_'Male'_(Frank_Mitchell).png`;
+      }
       // Images locales pour les nouveaux chars
       if (LOCAL_TANKS.includes(tank.Name)) {
         return `./${tank.Name.replace(/ /g, '_')}.png`;

@@ -544,7 +544,8 @@
       "SAu 40",
       "T-90M2",
       "Mark V 'Male' (Frank Mitchell)",
-      "Big Wind Windy"
+      "Big Wind Windy",
+      "T-44-100"
     ];
 
     const getTankImg = (tank) => {
@@ -1318,6 +1319,7 @@ Nahuel DL-43,Argentina,WW1-WW2,Tier III,Medium,Medium,Low,Large,Slow,Medium,Low,
 TAM,Argentina,Modern,Tier II,Very Light,Medium,Medium,Medium,Fast,Medium,Medium,No,No,Yes,No,No,No,Yes,No,No,No,No,No
 TAM 2C,Argentina,Modern,Tier III,Very Light,Heavy,High,Medium,Fast,Medium,Medium,No,No,Yes,No,No,No,Yes,Yes,No,No,No,No
 VCTP,Argentina,Modern,Tier II,Very Light,Light,Low,Medium,Fast,Medium,Medium,No,Yes,Yes,No,No,No,No,No,No,No,No,No
+T-44-100,Soviet Union,WW1-WW2,Event,Very Heavy,Very Heavy,Very High,Medium,Normal,High,Medium,No,No,No,No,No,No,No,No,No,No,No,No
     `;
     // --- UTILS ---
     const generateId = (tank) => {
@@ -2265,12 +2267,51 @@ VCTP,Argentina,Modern,Tier II,Very Light,Light,Low,Medium,Fast,Medium,Medium,No,
                 else if (rawCond.includes('parade ready')) condId = 'parade_ready';
                 else if (rawCond.includes('factory new')) condId = 'factory_new';
 
+                const NAME_ALIASES = {
+                  "a7v nixie": "A7V Nixie",
+                  "a7v 'nixie'": "A7V Nixie",
+                  "mark v male frank mitchell": "Mark V 'Male' (Frank Mitchell)",
+                  "mark v 'male' (frank mitchell)": "Mark V 'Male' (Frank Mitchell)",
+                  "m48a3_patton_(jungle fighter)": "M48A3 Patton 'Jungle Fighter'",
+                  "m48a3 patton jungle fighter": "M48A3 Patton 'Jungle Fighter'",
+                  "m48a3 patton (jungle fighter)": "M48A3 Patton 'Jungle Fighter'",
+                  "m1a1 abrams 73 easting": "M1A1 Abrams '73 Easting'",
+                  "m1a1 abrams '73 easting'": "M1A1 Abrams '73 Easting'",
+                  "bmp-3 khrizantema-s": "BMP-3 \"Khrizantema-S\"",
+                  "brm-3k rys": "BRM-3K \"Rys\"",
+                  "bmp-2m berezhok": "BMP-2M \"Berezhok\"",
+                  "m4a3e2 jumbo 75": "M4A3E2 \"Jumbo\" (75)",
+                  "m4a3e2 jumbo 76": "M4A3E2 \"Jumbo\" (76)",
+                  "m50 ontos": "M50 \"Ontos\"",
+                  "m60a2 starship": "M60A2 \"Starship\"",
+                  "panzer ii ausf. l luchs": "Panzer II Ausf. L \"Luchs\"",
+                  "Char B1 bis 'Eure'": "Char B1 bis (Eure)", 
+                  "t-34 model 1943 fallen heroes": "T-34 Model 1943 (Fallen Heroes)",
+                  "m26 super pershing": "M26 \"Super Pershing\"",
+                  "m1a1hc abrams": "M1A1HC Abrams",
+                  "m48a3 patton jungle fighter": "M48A3 Patton 'Jungle Fighter'",
+                  "tankora-72": "Tankora-72",
+                  "big wind windy": "Big Wind Windy",
+                  "m47 patton 331": "M47 Patton 331"
+                };
+                
                 // FIX: Robust matching for names (ignore quotes, case, and accents)
                 const normalize = (s) => s.normalize('NFD')
                   .replace(/[\u0300-\u036f]/g, '')
                   .replace(/["']/g, '')
                   .trim()
                   .toLowerCase();
+
+                // Vérification dans les alias
+                const aliasMatch = NAME_ALIASES[normalizedImport];
+                if (aliasMatch) {
+                  const tank = tanks.find(t => t.Name === aliasMatch || t.originalName === aliasMatch);
+                  if (tank) {
+                    if (!newCollection[tank.id]) newCollection[tank.id] = [];
+                    newCollection[tank.id].push(condId);
+                    continue;
+                  }
+                }
 
                 const normalizedImport = normalize(name);
                 let candidates = tanks.filter(t => normalize(t.Name) === normalizedImport || (t.originalName && normalize(t.originalName) === normalizedImport));

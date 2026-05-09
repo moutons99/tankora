@@ -546,7 +546,25 @@
       "Mark V 'Male' (Frank Mitchell)",
       "Big Wind Windy",
       "T-44-100",
-      "Type 95 Ro-Go"
+      "Type 95 Ro-Go",
+      "Ram Mk I",
+      "Ram Mk II (early)",
+      "Ram Mk II (late)",
+      "Grizzly I",
+      "Skink",
+      "AVGP Cougar",
+      "Coyote",
+      "Leopard C1",
+      "Leopard C2",
+      "Leopard C2 MEXAS",
+      "Leopard 2A4M CAN",
+      "Flakpanzer IV Möbelwagen",
+      "Flakpanzer IV Wirbelwind",
+      "Flakpanzer IV Ostwind",
+      "Flakpanzer IV Kugelblitz",
+      "RSO PAK",
+      "KV-8",
+      "KV-8S"
     ];
 
     const getTankImg = (tank) => {
@@ -679,7 +697,7 @@
     };
 
     const DATA_VALUE_MAP_FR = {
-      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "United States of America": "États-Unis","Argentina": "Argentine", "Union of South Africa": "Union sud-africaine", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
+      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "Canada": "Canada", "United States of America": "États-Unis","Argentina": "Argentine", "Union of South Africa": "Union sud-africaine", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
     };
 
     const FLAGS = {
@@ -700,10 +718,27 @@
       "South Africa": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
       "Hungary": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/330px-Flag_of_Hungary.svg.png",
       "Union of South Africa": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg/330px-Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg.png",
-      "Argentina": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg"
+      "Argentina": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg",
+      "Canada": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
     };
 
     const PATCH_NOTES = [
+      {
+            version: "2.5.0",
+            date: "2026-05-09",
+            changes: {
+              fr: [
+                "Ajout du Canada (11 nouveaux chars).",
+                "Ajout de nouveaux chars allemands (Flakpanzer IV, RSO PAK).",
+                "Ajout du KV-8 et KV-8S (Union soviétique).",
+              ],
+              en: [
+                "Added Canada (11 new tanks).",
+                "Added new German tanks (Flakpanzer IV, RSO PAK).",
+                "Added KV-8 and KV-8S (Soviet Union).",
+              ]
+            }
+          },
             {
         version: "2.4.0",
         date: "2026-04-26",
@@ -1321,6 +1356,24 @@ TAM,Argentina,Modern,Tier II,Very Light,Medium,Medium,Medium,Fast,Medium,Medium,
 TAM 2C,Argentina,Modern,Tier III,Very Light,Heavy,High,Medium,Fast,Medium,Medium,No,No,Yes,No,No,No,Yes,Yes,No,No,No,No
 VCTP,Argentina,Modern,Tier II,Very Light,Light,Low,Medium,Fast,Medium,Medium,No,Yes,Yes,No,No,No,No,No,No,No,No,No
 T-44-100,Soviet Union,WW1-WW2,Event,Very Heavy,Very Heavy,Very High,Medium,Normal,High,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Ram Mk I,Canada,WW1-WW2,Tier I,Medium,Medium,Low,Medium,Normal,Medium,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Ram Mk II (early),Canada,WW1-WW2,Tier II,Medium,Medium,Medium,Medium,Normal,Medium,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Ram Mk II (late),Canada,WW1-WW2,Tier II,Medium,Medium,Medium,Medium,Normal,Medium,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Grizzly I,Canada,WW1-WW2,Tier II,Medium,Heavy,Low,Medium,Slow,Medium,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Skink,Canada,WW1-WW2,Tier II,Medium,Very Light,Low,Medium,Slow,Medium,Medium,No,Yes,No,No,No,No,No,No,No,No,No,No
+AVGP Cougar,Canada,Modern,Tier I,Very Light,Very Light,Medium,Large,Fast,Medium,High,No,No,No,No,No,No,Yes,No,No,No,No,No
+Coyote,Canada,Modern,Tier I,Very Light,Very Light,Low,Large,Fast,Medium,High,No,Yes,Yes,No,No,No,Yes,Yes,No,No,No,No
+Leopard C1,Canada,Modern,Tier II,Light,Medium,High,Medium,Normal,Medium,High,No,No,Yes,No,No,No,Yes,No,No,No,No,No
+Leopard C2,Canada,Modern,Tier II,Very Light,Heavy,High,Medium,Normal,Medium,High,No,No,Yes,No,Yes,No,Yes,Yes,No,No,No,No
+Leopard C2 MEXAS,Canada,Modern,Tier III,Medium,Heavy,High,Medium,Normal,Medium,High,No,No,Yes,No,Yes,No,Yes,Yes,No,No,No,No
+Leopard 2A4M CAN,Canada,Modern,Tier IV,Very Heavy,Heavy,Very High,Large,Normal,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
+Flakpanzer IV Möbelwagen,German Reich,WW1-WW2,Tier II,Medium,Very Light,Medium,Medium,Normal,Medium,High,No,Yes,No,No,No,No,No,No,No,No,No,No
+Flakpanzer IV Wirbelwind,German Reich,WW1-WW2,Tier II,Medium,Very Light,Low,Medium,Normal,Medium,High,No,Yes,No,No,No,No,No,No,No,No,No,No
+Flakpanzer IV Ostwind,German Reich,WW1-WW2,Tier II,Medium,Very Light,Medium,Medium,Normal,Medium,High,No,Yes,No,No,No,No,No,No,No,No,No,No
+Flakpanzer IV Kugelblitz,German Reich,WW1-WW2,Tier III,Medium,Medium,Medium,Medium,Normal,Medium,Medium,No,Yes,No,No,No,No,No,No,No,No,No,No
+RSO PAK,German Reich,WW1-WW2,Tier III,Very Light,Heavy,High,Medium,Slow,High,Very High,No,No,No,No,No,No,No,No,No,No,No,No
+KV-8,Soviet Union,WW1-WW2,Tier III,Heavy,Light,Medium,Medium,Slow,High,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+KV-8S,Soviet Union,WW1-WW2,Tier III,Heavy,Light,Medium,Medium,Slow,High,Medium,No,No,No,No,No,No,No,No,No,No,No,No
     `;
     // --- UTILS ---
     const generateId = (tank) => {
@@ -2300,6 +2353,8 @@ T-44-100,Soviet Union,WW1-WW2,Event,Very Heavy,Very Heavy,Very High,Medium,Norma
                 else if (rawCond.includes('factory new')) condId = 'factory_new';
 
                 const NAME_ALIASES = {
+                  "ram mk ii early": "Ram Mk II (early)",
+                  "ram mk ii late": "Ram Mk II (late)",
                   "a7v nixie": "A7V Nixie",
                   "a7v 'nixie'": "A7V Nixie",
                   "mark v male frank mitchell": "Mark V 'Male' (Frank Mitchell)",
@@ -2886,7 +2941,7 @@ T-44-100,Soviet Union,WW1-WW2,Event,Very Heavy,Very Heavy,Very High,Medium,Norma
                   <h1 className="text-4xl md:text-5xl font-military uppercase tracking-wider text-slate-100 flex items-center gap-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     <span className={`text-${theme}-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]`} style={{ color: THEME_COLORS[theme].hex }}><Icons.Tank size={42} strokeWidth={2.5} /></span>
                     <span>Tankora <span style={{ color: THEME_COLORS[theme].hex }}>DB</span></span>
-                    <span className="text-[10px] font-sans font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded border border-white/10 ml-2 self-start mt-2">v2.4.0</span>
+                    <span className="text-[10px] font-sans font-bold bg-slate-800 text-slate-400 px-2 py-1 rounded border border-white/10 ml-2 self-start mt-2">v2.5.0</span>
                   </h1>
                   <div className="text-xs font-medium text-slate-400 mt-2 flex flex-col sm:flex-row sm:items-center gap-3">
                     <span className="flex items-center gap-1.5 bg-slate-800/50 px-3 py-1 rounded-full border border-white/5 cursor-pointer hover:bg-slate-800 transition-colors group" onClick={() => setShowProfile(true)} title={translate('details')}>
@@ -3285,7 +3340,7 @@ T-44-100,Soviet Union,WW1-WW2,Event,Very Heavy,Very Heavy,Very High,Medium,Norma
             <p className="flex justify-center items-center gap-2">
               <span className="font-bold uppercase tracking-widest" style={{ color: THEME_COLORS[theme].hex }}>{translate('credits')}</span>
               <span className="opacity-30">|</span>
-              <span className="opacity-50">v2.4.0</span>
+              <span className="opacity-50">v2.5.0</span>
             </p>
 
             {showBackToTop && (

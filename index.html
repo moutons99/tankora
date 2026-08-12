@@ -493,7 +493,8 @@
       "Char B1 bis (Eure)": "Char_B1_Bis_(Eure)",
       "M47 Patton 331": "m47_patton_331",
       "Type 89A I-Go Ko": "Type_89A_I-Go_Kō",
-      "M1A1 Abrams '73 Easting'": "M1A1_Abrams_(73_Easting)"
+      "M1A1 Abrams '73 Easting'": "M1A1_Abrams_(73_Easting)",
+      "Panzer IV/70(A)": "Panzer_IV70_A_"
     };
 
   const LOCAL_TANKS = [
@@ -570,7 +571,26 @@
       "Ersatz M10",
       "IPM1",
       "Leopard 2A6M CAN",
-      "M1A1 AIM"
+      "M1A1 AIM",
+      "Panzerjäger Wanze",
+      "Straussler V-4",
+      "38M Toldi I",
+      "38M Toldi II",
+      "42M Toldi IIA",
+      "40M Nimród",
+      "40M Turán I",
+      "41M Turán II",
+      "43M Turán III",
+      "43M Zrínyi II",
+      "T-55AM",
+      "Leopard 2A7HU",
+      "Lynx",
+      "T-34-57",
+      "Tiger I (P) Command",
+      "Sturmpanzer Ausf. II",
+      "Sturmpanzer Ausf. IV",
+      "QF 3.7 Ram",
+      "Strv 103A"
     ];
 
     const getTankImg = (tank) => {
@@ -579,9 +599,12 @@
         return `./Mark_V_'Male'_(Frank_Mitchell).png`;
       }
       // Images locales pour les nouveaux chars
-      if (LOCAL_TANKS.includes(tank.Name)) {
-        return `./${tank.Name.replace(/ /g, '_')}.png`;
-      }
+      if (tank.Name === "Panzer IV/70(A)") {
+            return `./Panzer_IV70_A_.png`;
+          }
+          if (LOCAL_TANKS.includes(tank.Name)) {
+            return `./${tank.Name.replace(/ /g, '_')}.png`;
+          }
       // Exception spécifique pour le T-80 Tier IV (moderne)
       if (tank.Name === "T-80" && tank.Rarity && tank.Rarity.includes("Tier IV")) {
         return `https://ik.imagekit.io/zmtjm8kok/tanks/Modern/Soviet%20Union/T-80.png?updatedAt=1772971124077`;
@@ -703,7 +726,7 @@
     };
 
     const DATA_VALUE_MAP_FR = {
-      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "Canada": "Canada", "United States of America": "États-Unis","Argentina": "Argentine", "Union of South Africa": "Union sud-africaine", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
+      "Soviet Union": "Union soviétique", "German Reich": "Reich allemand", "Canada": "Canada", "United States of America": "États-Unis","Argentina": "Argentine", "Union of South Africa": "Union sud-africaine", "East Germany": "Allemagne de l'Est", "Ost Germany": "Allemagne de l'ouest", "Hungary" : "Hongrie", "Switzerland": "Suisse", "South Africa": "Afrique du Sud", "United Kingdom": "Royaume-Uni", "France": "France", "Germany": "Allemagne", "Austria": "Autriche", "Russia": "Russie", "Empire of Japan": "Empire du Japon", "Japan": "Japon", "Australia": "Australie", "Sweden": "Suède", "Modern": "Moderne", "Cold War": "Guerre froide", "WW1-WW2": "PGM-SGM", "Very High": "Très élevé", "High": "Élevé", "Medium": "Moyen", "Low": "Faible", "Very Low": "Très faible", "Small Arms": "Armes légères", "Very Light": "Très légère", "Light": "Léger", "Heavy": "Lourd", "Very Heavy": "Très lourde", "Fast": "Rapide", "Very Fast": "Très rapide", "Slow": "Lent", "Very Slow": "Très lent", "Small": "Petit", "Large": "Grand", "Very Large": "Très grand", "Tiny": "Minuscule", "Normal": "Normal", "None": "Aucun", "Yes": "Oui", "No": "Non", "Level 1": "Niveau 1", "Level 2": "Niveau 2"
     };
 
     const FLAGS = {
@@ -725,7 +748,8 @@
       "Hungary": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/330px-Flag_of_Hungary.svg.png",
       "Union of South Africa": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg/330px-Flag_of_South_Africa_%281928%E2%80%931994%2C_dark_colors%29.svg.png",
       "Argentina": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg",
-      "Canada": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
+      "Canada": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
+      "Sweden": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg"
     };
 
     const PATCH_NOTES = [
@@ -1385,7 +1409,27 @@ TO-55,Soviet Union,Cold War,Tier IV,Medium,Very Heavy,Very High,Medium,Slow,Medi
 Ersatz M10,German Reich,WW1-WW2,Tier IV,Heavy,Heavy,High,Large,Normal,High,High,No,No,No,No,No,No,No,No,No,No,No,No
 IPM1,United States of America,Modern,Tier IV,Heavy,Heavy,Very High,Large,Fast,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
 Leopard 2A6M CAN,Canada,Modern,Tier V,Very Heavy,Very Heavy,Very High,Large,Normal,Medium,Very High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
-M1A1 AIM,Australia,Modern,Tier IV,Heavy,Heavy,Very High,Large,Fast,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No 
+M1A1 AIM,Australia,Modern,Tier IV,Heavy,Heavy,Very High,Large,Fast,Medium,High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
+Panzerjäger Wanze,German Reich,WW1-WW2,Tier III,Very Light,Very Heavy,Low,Tiny,Normal,None,Low,No,No,No,No,No,No,No,No,No,No,No,No
+Straussler V-4,Hungary ,WW1-WW2,Tier I,Very Light,Medium,Low,Small,Fast,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+38M Toldi I,Hungary ,WW1-WW2,Tier I,Very Light,Very Light,Low,Small,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+38M Toldi II,Hungary ,WW1-WW2,Tier I,Very Light,Very Light,Low,Small,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+42M Toldi IIA,Hungary ,WW1-WW2,Tier I,Very Light,Medium,Low,Small,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+40M Nimród,Hungary ,WW1-WW2,Tier II,Very Light,Light,Low,Small,Normal,Low,High,No,Yes,No,No,No,No,No,No,No,No,No,No
+40M Turán I,Hungary ,WW1-WW2,Tier II,Light,Medium,Low,Small,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+41M Turán II,Hungary ,WW1-WW2,Tier II,Light,Medium,Low,Small,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+43M Turán III,Hungary ,WW1-WW2,Tier III,Medium,Heavy,High,Medium,Normal,Low,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+43M Zrínyi II,Hungary ,WW1-WW2,Tier II,Medium,Heavy,Low,Small,Normal,None,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+T-55AM,Hungary ,Modern,Tier I,Medium,Medium,Low,Medium,Normal,Medium,Low,No,No,Yes,No,No,No,Yes,No,No,No,No,No
+Leopard 2A7HU,Hungary ,Modern,Tier V,Very Heavy,Very Heavy,Very High,Large,Normal,Medium,Very High,No,No,Yes,Yes,Yes,No,Yes,Yes,No,No,No,No
+Lynx,Hungary ,Modern,Tier III,Medium,Light,Low,Large,Fast,Medium,Very High,No,Yes,Yes,No,Yes,No,Yes,Yes,No,No,Yes,Level 2
+T-34-57,Soviet Union,WW1-WW2,Tier III,Medium,Heavy,High,Medium,Normal,High,Medium,No,No,No,No,No,No,No,No,No,No,No,No
+Tiger I (P) Command,German Reich,WW1-WW2,Tier IV,Very Heavy,Heavy,High,Large,Normal,Medium,Low,No,No,No,No,No,No,No,No,No,No,No,No
+Sturmpanzer Ausf. II,German Reich,WW1-WW2,Tier II,Very Light,Heavy,Low,Medium,Normal,None,High,No,No,No,No,No,No,No,No,No,No,No,No
+Sturmpanzer Ausf. IV,German Reich,WW1-WW2,Tier IV,Heavy,Heavy,Low,Medium,Normal,Low,Low,No,No,No,No,No,No,No,No,No,No,No,No
+Panzer IV/70(A),German Reich,WW1-WW2,Tier III,Medium,Medium,High,Medium,Normal,High,Low,No,No,No,No,No,No,No,No,No,No,No,No
+QF 3.7 Ram,Canada,WW1-WW2,Prototype,Very Light,Heavy,Very High,Large,Normal,None,Very High,No,No,No,No,No,No,No,No,No,No,No,No
+Strv 103A,Sweden,Cold War,Tier V,Heavy,Very Heavy,Very High,Small,Fast,High,Very High,No,No,No,No,No,Yes,No,No,No,No,No,No
 
     `;
     // --- UTILS ---
